@@ -6,7 +6,7 @@ export const Hero: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false)
 
   return (
-    <section className="relative overflow-hidden bg-white pt-20 sm:pt-28 pb-6 sm:pb-12">
+    <section className="relative overflow-hidden bg-white min-h-[100dvh] flex flex-col justify-center pt-20 sm:pt-28 pb-8 sm:pb-12">
       {/* Background Architectural Photography with Light Luxury Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -20,7 +20,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-transparent sm:to-white/20" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 sm:py-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-4 sm:py-8">
         <div className="max-w-3xl space-y-3.5 sm:space-y-5">
           {/* Subtle Credibility Pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-xs text-xs text-slate-800">
