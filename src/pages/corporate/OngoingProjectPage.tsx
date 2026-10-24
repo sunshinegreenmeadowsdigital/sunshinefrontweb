@@ -126,13 +126,13 @@ export const OngoingProjectPage: React.FC = () => {
             {/* Stat 4: Construction Status */}
             <div className="p-2 sm:p-3 pt-4 sm:pt-2 flex flex-col items-center justify-center">
               <div className="font-display text-xl sm:text-2xl font-bold text-emerald-700">
-                ~90% Complete
+                90% Complete
               </div>
               <div className="text-[10px] sm:text-xs uppercase font-mono tracking-wider text-slate-500 mt-0.5">
-                Construction Progress
+                Construction Status
               </div>
-              <div className="text-[9px] text-slate-400 font-mono mt-0.5">
-                *Subject to final review
+              <div className="text-[9px] text-emerald-600 font-mono mt-0.5 font-medium">
+                Finishing in Progress
               </div>
             </div>
 
@@ -197,7 +197,7 @@ export const OngoingProjectPage: React.FC = () => {
                 Situated on DPS Road in Bowrampet, Sunshine Green Meadows features four independent residential blocks spaced for acoustic privacy and generous airflow.
               </p>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                With construction at ~90% completion, homeowners enjoy a ~10,000 Sft. multi-level clubhouse, rooftop pool, manicured gardens, and 24/7 security.
+                With construction at 90% complete, homeowners enjoy a ~10,000 Sft. multi-level clubhouse, rooftop pool, manicured gardens, and 24/7 security.
               </p>
 
               <div className="pt-1 flex flex-col gap-2">

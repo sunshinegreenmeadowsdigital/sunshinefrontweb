@@ -53,6 +53,10 @@ export const GreenMeadowsHero: React.FC<GreenMeadowsHeroProps> = ({ onOpenModal 
             <span className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-emerald-50 backdrop-blur-md border border-emerald-200 text-[10px] sm:text-xs text-emerald-800 font-mono">
               <span>2 & 3 BHK</span>
             </span>
+
+            <span className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-emerald-100 backdrop-blur-md border border-emerald-300 text-[10px] sm:text-xs text-emerald-900 font-mono font-bold">
+              <span>90% Complete</span>
+            </span>
           </div>
 
           {/* Headline */}

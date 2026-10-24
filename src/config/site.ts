@@ -46,7 +46,7 @@ export const siteConfig = {
     name: 'Sunshine Green Meadows',
     location: 'Bowrampet, Medchal, Hyderabad',
     tagline: 'Lifestyle Apartments @ Bowrampet',
-    status: 'Ongoing (~90% complete, as reported by client)',
+    status: 'Ongoing (90% Complete)',
     blocks: 4,
     units: 236,
     configurations: ['2 BHK', '3 BHK'],

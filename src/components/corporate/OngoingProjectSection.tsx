@@ -54,7 +54,7 @@ export const OngoingProjectSection: React.FC = () => {
                   <span>Bowrampet, Medchal, Hyderabad</span>
                 </div>
                 <div className="font-mono text-emerald-300 font-semibold text-[10px] sm:text-xs">
-                  HMDA Approved
+                  90% Complete • HMDA Approved
                 </div>
               </div>
             </div>

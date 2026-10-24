@@ -33,7 +33,7 @@ export interface ProjectSpecs {
   blocksCount: number
   unitsCount: number
   configurations: string[]
-  constructionStatus: string // "Ongoing (~90% complete, client reported)"
+  constructionStatus: string // "Ongoing (90% Complete)"
   reraRegistrationNumber: string
   hmdaApproved: boolean
 }
