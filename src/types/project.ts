@@ -29,7 +29,7 @@ export interface ProjectSpecs {
   name: string
   tagline: string
   location: string
-  totalLandArea: string // e.g. "2.87 Acres 37 Guntas (Subject to final verification)"
+  totalLandArea: string // "2.87 Acres"
   blocksCount: number
   unitsCount: number
   configurations: string[]

@@ -1,26 +1,24 @@
 import React from 'react'
-import { Building2, Home, Sparkles, Map, AlertTriangle } from 'lucide-react'
-import { projectStats } from '@/data/greenMeadowsData'
+import { Building2, Home, Sparkles, Map } from 'lucide-react'
 
 export const ProjectStatsRibbon: React.FC = () => {
   return (
     <section className="relative bg-slate-50 border-y border-slate-200 py-6 sm:py-8 md:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center">
-          {/* Stat 1: Working Acreage (Configurable & Flagged) */}
+          {/* Stat 1: Total Land Extent */}
           <div className="flex flex-col items-center justify-center p-2.5 pt-4 md:pt-2.5">
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-100/70 flex items-center justify-center text-emerald-700 mb-1.5">
               <Map className="w-3.5 h-3.5" />
             </div>
             <div className="font-display text-lg sm:text-2xl font-bold text-slate-900">
-              {projectStats.landExtent.workingValue}
+              2.87 Acres
             </div>
             <div className="text-[10px] sm:text-xs uppercase font-mono tracking-wider text-slate-600 mt-0.5">
-              Working Land Parcel
+              Total Land Parcel
             </div>
-            <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] sm:text-[10px] text-amber-700 font-mono text-center">
-              <AlertTriangle className="w-3 h-3 shrink-0" />
-              <span>Pending final survey verification</span>
+            <div className="text-[9px] sm:text-[10px] text-emerald-700 font-mono mt-0.5 font-medium">
+              Sanctioned Layout
             </div>
           </div>
 

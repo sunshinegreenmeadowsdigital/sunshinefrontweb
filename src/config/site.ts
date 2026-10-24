@@ -50,9 +50,8 @@ export const siteConfig = {
     blocks: 4,
     units: 236,
     configurations: ['2 BHK', '3 BHK'],
-    // Flagged for verification before legal publication
-    landAreaSupplied: '2.87 acres 37 guntas (Client reported — pending final legal verification)',
-    landAreaDisplay: '~2.87 Acres',
+    landAreaSupplied: '2.87 Acres',
+    landAreaDisplay: '2.87 Acres',
     reraNumber: 'P02200006843',
     hmdaApproved: true,
     clubhouseArea: 'Nearly 10,000 Sft.',

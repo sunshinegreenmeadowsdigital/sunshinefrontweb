@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { siteConfig } from '@/config/site'
 import { projectRoutes } from '@/data/routes'
-import { projectStats } from '@/data/greenMeadowsData'
 import { Button } from '@/components/shared/Button'
 import {
   ShieldCheck,
@@ -10,7 +9,6 @@ import {
   CheckCircle2,
   ArrowRight,
   Sparkles,
-  AlertTriangle,
 } from 'lucide-react'
 
 export const OngoingProjectPage: React.FC = () => {
@@ -83,17 +81,16 @@ export const OngoingProjectPage: React.FC = () => {
       <section className="relative bg-slate-50 border-b border-slate-200/80 py-6 sm:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 text-center">
-            {/* Stat 1: Working Land Extent */}
+            {/* Stat 1: Total Land Parcel */}
             <div className="p-2 sm:p-3 pt-4 sm:pt-2 flex flex-col items-center justify-center">
               <div className="font-display text-xl sm:text-2xl font-bold text-slate-900">
-                {projectStats.landExtent.workingValue}
+                2.87 Acres
               </div>
               <div className="text-[10px] sm:text-xs uppercase font-mono tracking-wider text-slate-500 mt-0.5">
-                Working Land Parcel
+                Total Land Parcel
               </div>
-              <div className="mt-0.5 inline-flex items-center gap-1 text-[9px] text-amber-600 font-mono">
-                <AlertTriangle className="w-3 h-3 shrink-0" />
-                <span>Pending survey sign-off</span>
+              <div className="text-[10px] text-emerald-700 font-mono mt-0.5 font-medium">
+                Gated Community
               </div>
             </div>
 

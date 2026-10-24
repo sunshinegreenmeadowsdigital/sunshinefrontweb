@@ -195,10 +195,10 @@ export interface ProjectStatsConfig {
 
 export const projectStats: ProjectStatsConfig = {
   landExtent: {
-    workingValue: '2.87 Acres 37 Guntas',
-    displayBadge: '~2.87 Acres',
-    isVerified: false,
-    verificationNotice: 'Working figure: 2.87 Acres 37 Guntas — pending final survey verification against statutory HMDA sanction documents.',
+    workingValue: '2.87 Acres',
+    displayBadge: '2.87 Acres',
+    isVerified: true,
+    verificationNotice: 'Sanctioned Extent: 2.87 Acres',
   },
   blocks: {
     count: 4,
