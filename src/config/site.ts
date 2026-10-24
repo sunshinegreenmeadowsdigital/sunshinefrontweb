@@ -18,11 +18,11 @@ export const siteConfig = {
     primaryPhoneFormatted: '+91 79974 82222',
     primaryPhoneTel: '+917997482222',
 
-    // Support and WhatsApp lines identified from audit
-    secondaryPhone: '+91 7997242222',
-    whatsAppNumber: '917997242222',
+    // Support and WhatsApp lines
+    secondaryPhone: '+91 7997482222',
+    whatsAppNumber: '917997482222',
     whatsAppUrl:
-      'https://api.whatsapp.com/send?phone=917997242222&text=Hi%2C%20I%20would%20like%20more%20information%20about%20Sunshine%20Infra%20projects',
+      'https://api.whatsapp.com/send?phone=917997482222&text=Hi%2C%20I%20would%20like%20more%20information%20about%20Sunshine%20Infra%20projects',
 
     email: 'sales@sunshineinfra.in',
     officeAddress: {
