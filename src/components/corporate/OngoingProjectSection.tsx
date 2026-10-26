@@ -2,159 +2,159 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { projectRoutes } from '@/data/routes'
 import { siteConfig } from '@/config/site'
-import { ArrowRight, MapPin, ShieldCheck, Check, Trees, Building, Sparkles } from 'lucide-react'
+import { ArrowRight, MapPin, ShieldCheck, Check, Building, Sparkles, Compass } from 'lucide-react'
 
 export const OngoingProjectSection: React.FC = () => {
   return (
-    <section id="ongoing-project" className="py-12 sm:py-20 lg:py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200">
+    <section id="ongoing-project" className="py-16 sm:py-24 lg:py-28 bg-gradient-to-b from-white via-slate-50/80 to-white relative overflow-hidden border-t border-slate-200/80">
+      {/* Subtle luxury ambient glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-tr from-emerald-500/10 via-teal-500/5 to-transparent blur-[140px] rounded-full pointer-events-none -z-0" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6">
-          <div className="space-y-1.5 sm:space-y-2">
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider bg-emerald-50 text-emerald-800 border border-emerald-200">
-                <Trees className="w-3.5 h-3.5" />
-                <span>90% Complete</span>
-              </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-xs">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-5 sm:gap-6">
+          <div className="space-y-2.5">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.2em] bg-emerald-50 text-emerald-800 border border-emerald-200/80 shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Flagship Ongoing Residences</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-sm shadow-emerald-600/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                <span>Ready to Move In</span>
-              </div>
+                <span>90% Complete • Ready to Move In</span>
+              </span>
             </div>
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
-              Sunshine Green Meadows
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.15]">
+              Sunshine Green Meadows, <span className="italic font-normal text-emerald-600">Bowrampet</span>
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
-              Gated luxury 2 & 3 BHK apartments at Bowrampet, surrounded by natural greens and 5 minutes from ORR Exit 4.
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+              A private 2.87-acre botanical enclave of 2 & 3 BHK residences, situated on DPS Road just 5 minutes from ORR Exit 4.
             </p>
           </div>
 
           <Link
             to={projectRoutes.greenMeadows}
-            className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs hover:shadow-md transition-all self-start md:self-end"
+            className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:shadow-emerald-600/35 transition-all self-start md:self-end active:scale-95 cursor-pointer"
           >
-            <span>Discover Green Meadows</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span>Explore Green Meadows</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {/* Project Feature Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-7 lg:p-9 shadow-md shadow-slate-200/50">
+        {/* Project Showcase Feature Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center bg-white/95 backdrop-blur-xl border border-slate-200/90 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)] hover:shadow-[0_25px_60px_-15px_rgba(16,185,129,0.12)] transition-all duration-500">
           {/* Visual Showcase */}
-          <div className="lg:col-span-7 space-y-3 sm:space-y-4">
-            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200 aspect-[16/10] group">
+          <div className="lg:col-span-7 space-y-4">
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 aspect-[16/10] group shadow-sm">
               <img
                 src="/assets/projects/green-meadows/elevations/aerial.jpg"
-                alt="Sunshine Green Meadows Architectural Perspective"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                alt="Sunshine Green Meadows Architectural Master View"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-mono font-semibold bg-white/90 backdrop-blur-md text-emerald-800 border border-slate-200 shadow-xs">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+
+              {/* RERA Badge top left */}
+              <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-semibold bg-white/95 backdrop-blur-md text-emerald-800 border border-slate-200 shadow-md">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>TS RERA: {siteConfig.greenMeadows.reraNumber}</span>
               </div>
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between text-[11px] sm:text-xs text-white">
-                <div className="flex items-center gap-1.5 font-medium">
-                  <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Bowrampet, Medchal, Hyderabad</span>
+
+              {/* Location & Ready status bottom bar */}
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between text-xs text-white">
+                <div className="flex items-center gap-1.5 font-medium text-slate-100">
+                  <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="text-[11px] sm:text-xs truncate">Bowrampet, DPS Road, Hyderabad</span>
                 </div>
-                <div className="flex items-center gap-2 font-mono text-[10px] sm:text-xs">
-                  <span className="px-2 py-0.5 rounded-full bg-emerald-500 text-slate-950 font-bold uppercase tracking-wider shadow-xs">
+                <div className="flex items-center gap-2 font-mono text-[10px] sm:text-xs shrink-0">
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-500 text-slate-950 font-bold uppercase tracking-wider shadow-sm">
                     Ready to Move In
-                  </span>
-                  <span className="font-semibold text-emerald-300 hidden sm:inline">
-                    90% Complete • HMDA
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Thumbnail Highlights */}
-            <div className="grid grid-cols-2 gap-2 sm:gap-4">
-              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5 sm:gap-3">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center shrink-0">
-                  <Building className="w-4 h-4" />
+            {/* Architectural Highlights Strip */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="p-3 sm:p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex items-center gap-3">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center shrink-0 shadow-xs">
+                  <Building className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <div className="text-[11px] sm:text-xs font-semibold text-slate-900">Grand Clubhouse</div>
-                  <div className="text-[10px] sm:text-[11px] text-slate-500">~10,000 Sft. Leisure</div>
+                  <div className="text-xs sm:text-sm font-bold text-slate-900 font-display">Grand Clubhouse</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-mono">~10,000 Sft. 3-Level Luxury</div>
                 </div>
               </div>
 
-              <div className="p-2.5 sm:p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5 sm:gap-3">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4" />
+              <div className="p-3 sm:p-3.5 rounded-2xl bg-slate-50/80 border border-slate-200/80 flex items-center gap-3">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center shrink-0 shadow-xs">
+                  <Compass className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <div className="text-[11px] sm:text-xs font-semibold text-slate-900">100% Vaastu</div>
-                  <div className="text-[10px] sm:text-[11px] text-slate-500">Cross-Ventilated</div>
+                  <div className="text-xs sm:text-sm font-bold text-slate-900 font-display">100% Vaastu</div>
+                  <div className="text-[10px] sm:text-xs text-slate-500 font-mono">Zero Common Wall Privacy</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Specifications & Key Details */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-5">
-            <div className="space-y-1.5 sm:space-y-2">
-              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-emerald-700 font-semibold">
-                Project Architecture
+          <div className="lg:col-span-5 space-y-5">
+            <div className="space-y-2">
+              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-emerald-700 font-bold">
+                Project Architecture & Inventory
               </span>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-slate-900 leading-snug">
-                Balanced Living Around Nature & Space
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 leading-snug">
+                Designed for Space, Light & Enduring Value
               </h3>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-lg">
-                Four towers with spacious 2 & 3 BHK residences, next to reserve greens and minutes from top international schools.
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Four elegantly planned towers surrounded by lush reserve greens, featuring expansive corner balconies and high-spec club amenities.
               </p>
             </div>
 
-            {/* Verified Metric Ribbon */}
-            <div className="grid grid-cols-3 gap-2 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
+            {/* Verified Architectural Metric Ribbon */}
+            <div className="grid grid-cols-3 gap-2 p-3 sm:p-4 rounded-2xl bg-slate-50 border border-slate-200/80 text-center shadow-xs">
               <div>
-                <div className="font-display text-lg sm:text-2xl font-bold text-slate-900">4</div>
+                <div className="font-display text-xl sm:text-2xl font-bold text-slate-900">4</div>
                 <div className="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider text-slate-500 mt-0.5">Blocks</div>
               </div>
               <div className="border-x border-slate-200">
-                <div className="font-display text-lg sm:text-2xl font-bold text-slate-900">236</div>
+                <div className="font-display text-xl sm:text-2xl font-bold text-slate-900">236</div>
                 <div className="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider text-slate-500 mt-0.5">Apartments</div>
               </div>
               <div>
-                <div className="font-display text-lg sm:text-2xl font-bold text-emerald-600">2 & 3</div>
+                <div className="font-display text-xl sm:text-2xl font-bold text-emerald-600">2 & 3</div>
                 <div className="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider text-slate-500 mt-0.5">BHK Units</div>
               </div>
             </div>
 
-            {/* Highlighted Amenities List */}
-            <ul className="space-y-1.5 text-xs text-slate-700">
-              <li className="flex items-center gap-2 font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-200">
-                <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>90% Construction Complete — Ready to Move In</span>
+            {/* Curated Luxury Features List */}
+            <ul className="space-y-2 text-xs text-slate-700">
+              <li className="flex items-center gap-2.5 font-bold text-emerald-900 bg-emerald-50/90 px-3 py-2 rounded-xl border border-emerald-200/80">
+                <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>90% Construction Complete — Handover Imminent</span>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2.5 px-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>Rooftop swimming pool & AC fitness gymnasium</span>
+                <span>Rooftop swimming pool & air-conditioned fitness club</span>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2.5 px-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>5 minutes to Outer Ring Road (ORR) Exit No. 4</span>
               </li>
-              <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2.5 px-1">
                 <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>100-feet proposed master access road connectivity</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>No common walls with expansive corner balconies</span>
+                <span>HMDA & TS RERA legally approved residential land</span>
               </li>
             </ul>
 
-            <div className="pt-1">
+            <div className="pt-2">
               <Link
                 to={projectRoutes.greenMeadows}
-                className="w-full inline-flex items-center justify-center gap-2 py-2.5 sm:py-3 px-5 rounded-full text-xs font-bold uppercase tracking-wider border border-emerald-600 text-emerald-700 hover:bg-emerald-50 transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-full text-xs font-bold uppercase tracking-wider bg-white border-2 border-emerald-600 text-emerald-800 hover:bg-emerald-50 hover:border-emerald-700 shadow-xs hover:shadow-md transition-all active:scale-95 cursor-pointer"
               >
-                <span>View Master Layout & Floor Plans</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>View Floor Plans & Pricing Details</span>
+                <ArrowRight className="w-4 h-4 text-emerald-600" />
               </Link>
             </div>
           </div>

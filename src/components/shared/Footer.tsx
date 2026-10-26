@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { siteConfig } from '@/config/site'
 import { corporateRoutes, projectRoutes } from '@/data/routes'
-import { Phone, Mail, MapPin, ShieldCheck, ExternalLink } from 'lucide-react'
+import { Phone, Mail, MapPin, ShieldCheck, ExternalLink, ArrowUpRight } from 'lucide-react'
 
 export interface FooterProps {
   theme?: 'corporate' | 'meadows'
@@ -12,139 +12,144 @@ export const Footer: React.FC<FooterProps> = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="w-full bg-slate-50 border-t border-slate-200 text-slate-600 transition-colors mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 sm:gap-8 lg:gap-10">
+    <footer className="w-full bg-slate-950 border-t border-slate-800/80 text-slate-400 transition-colors mt-auto relative overflow-hidden">
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[300px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-[#E06B2D]/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand & Mission */}
-          <div className="space-y-3">
-            <Link to="/" className="inline-block">
-              <img
-                src="/assets/branding/sunshine-logo-dark.png"
-                alt="Sunshine Infra"
-                className="h-8 sm:h-9 w-auto object-contain"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none'
-                }}
-              />
+          <div className="space-y-4">
+            <Link to="/" className="inline-block group focus-visible:outline-none">
+              <div className="flex flex-col">
+                <span className="font-display font-bold text-xl sm:text-2xl tracking-wider text-white group-hover:text-[#F27C3E] transition-colors leading-tight">
+                  SUNSHINE<span className="text-[#E06B2D]">.</span>INFRA
+                </span>
+                <span className="text-[9px] uppercase font-mono tracking-[0.25em] text-[#C28B5B] font-semibold mt-0.5">
+                  Enshining Lifestyles
+                </span>
+              </div>
             </Link>
-            <p className="text-xs leading-relaxed text-slate-600">
-              {siteConfig.company.tagline}. Creating energy-efficient, design-led residential
-              communities that redefine luxury living across Hyderabad.
+
+            <p className="text-xs leading-relaxed text-slate-400">
+              {siteConfig.company.tagline}. Creating energy-efficient, design-led residential communities that redefine luxury living across Hyderabad's prime growth corridors.
             </p>
+
             <div className="pt-1">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono bg-white border border-slate-200 shadow-xs text-slate-800">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                <span>TS RERA: {siteConfig.greenMeadows.reraNumber}</span>
-              </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 shadow-sm">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span className="text-[11px]">TS RERA: <strong className="text-white font-semibold">{siteConfig.greenMeadows.reraNumber}</strong></span>
+              </div>
             </div>
           </div>
 
           {/* Quick Navigation */}
           <div>
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-900 mb-3">
-              Quick Links
+            <h4 className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#C28B5B] mb-4">
+              Explore Sunshine
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2.5 text-xs">
               {corporateRoutes.map((route) => (
                 <li key={route.path}>
                   <Link
                     to={route.path}
-                    className="text-slate-600 hover:text-[#E06B2D] transition-colors"
+                    className="text-slate-300 hover:text-white hover:translate-x-0.5 transition-all inline-flex items-center gap-1.5"
                   >
-                    {route.label}
+                    <span className="text-slate-600">›</span>
+                    <span>{route.label}</span>
                   </Link>
                 </li>
               ))}
               <li>
                 <Link
                   to={projectRoutes.greenMeadows}
-                  className="text-emerald-700 hover:text-emerald-800 font-medium transition-colors inline-flex items-center gap-1"
+                  className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors inline-flex items-center gap-1.5"
                 >
+                  <span className="text-emerald-500">›</span>
                   <span>Sunshine Green Meadows</span>
-                  <ExternalLink className="w-3 h-3" />
+                  <ExternalLink className="w-3 h-3 ml-0.5" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Project Highlights */}
+          {/* Flagship Ongoing Development */}
           <div>
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-900 mb-3">
-              Ongoing Project
+            <h4 className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#C28B5B] mb-4">
+              Flagship Development
             </h4>
-            <div className="p-3.5 rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 shadow-xs space-y-1.5">
-              <div className="text-xs sm:text-sm font-semibold text-slate-900">
-                {siteConfig.greenMeadows.name}
+            <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800/90 shadow-md space-y-2.5 group hover:border-emerald-500/40 transition-colors">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-white font-display group-hover:text-emerald-300 transition-colors">
+                  {siteConfig.greenMeadows.name}
+                </span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               </div>
-              <div className="text-[11px] text-slate-500">
+              <div className="text-[11px] text-slate-400 leading-relaxed font-sans">
                 {siteConfig.greenMeadows.location}
               </div>
-              <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-950 text-emerald-300 border border-emerald-500/30">
                   90% Complete
                 </span>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-xs">
-                  <span className="w-1 h-1 rounded-full bg-white animate-pulse" />
-                  <span>Ready to Move In</span>
+                <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-500 text-slate-950 shadow-xs">
+                  Ready to Move In
                 </span>
               </div>
-              <div className="pt-1">
-                <Link
-                  to={projectRoutes.greenMeadows}
-                  className="text-[11px] font-bold text-[#E06B2D] hover:underline inline-flex items-center gap-1"
-                >
-                  <span>View Project Details</span>
-                  <span>&rarr;</span>
-                </Link>
-              </div>
+              <Link
+                to={projectRoutes.greenMeadows}
+                className="mt-2 text-[11px] font-mono uppercase tracking-wider text-emerald-400 hover:text-emerald-300 flex items-center gap-1 pt-1 font-semibold"
+              >
+                <span>Explore 2 & 3 BHK Plans</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </Link>
             </div>
           </div>
 
-          {/* Contact Details */}
+          {/* Corporate Head Office Contact */}
           <div>
-            <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-900 mb-3">
-              Headquarters & Sales
+            <h4 className="text-[11px] font-mono font-bold uppercase tracking-[0.2em] text-[#C28B5B] mb-4">
+              Sales & Corporate Office
             </h4>
-            <ul className="space-y-2.5 text-xs">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-3.5 h-3.5 text-[#E06B2D] shrink-0 mt-0.5" />
-                <span className="text-[11px] sm:text-xs leading-relaxed text-slate-600">
+            <div className="space-y-3 text-xs">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#E06B2D] shrink-0 mt-0.5" />
+                <span className="text-slate-300 leading-relaxed">
                   {siteConfig.contact.officeAddress.fullAddress}
                 </span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-3.5 h-3.5 text-[#E06B2D] shrink-0" />
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-[#E06B2D] shrink-0" />
                 <a
                   href={`tel:${siteConfig.contact.primaryPhoneTel}`}
-                  className="text-xs font-medium text-slate-800 hover:text-[#E06B2D] transition-colors font-mono"
+                  className="font-mono text-slate-200 hover:text-white font-medium transition-colors"
                 >
                   {siteConfig.contact.primaryPhoneFormatted}
                 </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-3.5 h-3.5 text-[#E06B2D] shrink-0" />
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-[#E06B2D] shrink-0" />
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="text-xs text-slate-800 hover:text-[#E06B2D] transition-colors"
+                  className="text-slate-300 hover:text-white transition-colors"
                 >
                   {siteConfig.contact.email}
                 </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Legal & Statutory Bottom Row */}
-        <div className="mt-8 sm:mt-10 pt-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] sm:text-xs text-slate-500">
-          <div>
-            &copy; {currentYear} {siteConfig.company.legalName}. All rights reserved. •{' '}
-            <a href="https://sunshineinfra.in" className="hover:text-slate-900 transition-colors">
-              sunshineinfra.in
-            </a>
-          </div>
-          <div className="text-center sm:text-right">
-            <span>TS RERA REG. No. {siteConfig.greenMeadows.reraNumber}</span> |{' '}
-            <span>HMDA Approved</span>
+        {/* Disclaimer & Bottom Bar */}
+        <div className="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 font-sans">
+          <p>© {currentYear} Sunshine Infra Developers. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <span className="font-mono text-slate-500">HMDA Approved</span>
+            <span className="text-slate-700">•</span>
+            <span className="font-mono text-emerald-500 font-semibold">TS RERA: {siteConfig.greenMeadows.reraNumber}</span>
           </div>
         </div>
       </div>
