@@ -32,12 +32,10 @@ export const GreenMeadowsHero: React.FC<GreenMeadowsHeroProps> = ({ onOpenModal 
             fetchPriority="high"
           />
         </picture>
-        {/* Full-bleed twilight dark shading: darkens the entire background image evenly so text sits directly on the visual without any separate box */}
-        <div className="absolute inset-0 bg-slate-950/45 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 via-50% to-slate-950/30 md:hidden pointer-events-none" />
-        {/* Desktop Luxury Twilight Gradients */}
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-slate-950/60 pointer-events-none" />
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent pointer-events-none" />
+        {/* Balanced twilight lighting: soft directional vignette so the project visual remains clearly visible and vibrant */}
+        <div className="md:hidden absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/25 via-55% to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/20 via-40% to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-black/15 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 sm:py-10">

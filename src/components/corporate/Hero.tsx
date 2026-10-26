@@ -23,11 +23,10 @@ export const Hero: React.FC = () => {
             fetchPriority="high"
           />
         </picture>
-        {/* Full-bleed twilight dark shading: darkens the image evenly so text sits directly on the visual without any separate box */}
-        <div className="absolute inset-0 bg-slate-950/45 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/35 md:hidden pointer-events-none" />
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/20 pointer-events-none" />
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/50 pointer-events-none" />
+        {/* Balanced twilight lighting: soft directional vignette so the project visual remains clearly visible and vibrant */}
+        <div className="md:hidden absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/25 via-55% to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/20 via-40% to-transparent pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-black/15 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-4 sm:py-8">

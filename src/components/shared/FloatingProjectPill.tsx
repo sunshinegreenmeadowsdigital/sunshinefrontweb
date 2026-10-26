@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { projectRoutes } from '@/data/routes'
-import { ArrowRight, X, Sparkles } from 'lucide-react'
+import { X } from 'lucide-react'
 
 export const FloatingProjectPill: React.FC = () => {
   const [visible, setVisible] = useState(false)
@@ -20,7 +20,7 @@ export const FloatingProjectPill: React.FC = () => {
     // Gentle delay to slide in after the hero loads
     const timer = setTimeout(() => {
       setVisible(true)
-    }, 1800)
+    }, 1500)
 
     return () => clearTimeout(timer)
   }, [isProjectPage, dismissed, location.pathname])
@@ -31,67 +31,62 @@ export const FloatingProjectPill: React.FC = () => {
 
   return (
     <aside
-      aria-label="Ongoing Flagship Development Announcement"
-      className="fixed z-40 bottom-20 sm:bottom-6 right-3 sm:right-6 max-w-[calc(100vw-1.5rem)] sm:max-w-md animate-in fade-in slide-in-from-bottom-5 duration-500"
+      aria-label="Ongoing Flagship Project"
+      className="fixed z-40 bottom-20 sm:bottom-6 right-3 sm:right-6 animate-in fade-in slide-in-from-bottom-3 duration-500 select-none"
     >
-      <div className="relative group bg-slate-950/90 hover:bg-slate-950 text-white p-3 sm:p-3.5 rounded-2xl border border-emerald-500/40 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:shadow-emerald-500/20 hover:border-emerald-400">
-        {/* Glowing aura */}
-        <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-emerald-500/30 to-amber-500/30 opacity-75 blur-sm -z-10 group-hover:opacity-100 transition-opacity" />
-
-        {/* Dismiss Button */}
+      <div className="relative group">
+        {/* Unobtrusive Dismiss 'X' Button */}
         <button
           onClick={(e) => {
             e.preventDefault()
             e.stopPropagation()
             setDismissed(true)
           }}
-          className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700 flex items-center justify-center text-xs shadow-md cursor-pointer transition-colors"
-          aria-label="Dismiss project alert"
+          className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-slate-900 text-slate-300 hover:text-white border border-slate-700 hover:border-emerald-400 flex items-center justify-center text-[10px] shadow-lg z-20 cursor-pointer transition-colors"
+          aria-label="Close project shortcut"
         >
-          <X className="w-3.5 h-3.5" />
+          <X className="w-3 h-3" />
         </button>
 
+        {/* Small, Compact Square-Style Floating Card */}
         <Link
           to={projectRoutes.greenMeadows}
-          className="flex items-center gap-3 sm:gap-3.5"
+          className="flex flex-col items-center text-center p-2 rounded-2xl bg-slate-950/90 hover:bg-slate-900 border border-emerald-500/50 hover:border-emerald-400 shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 w-[96px] sm:w-[108px] group cursor-pointer"
         >
-          {/* Mini Thumbnail with Live Pulse */}
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shrink-0 border border-white/20">
-            <img
-              src="/assets/projects/green-meadows/elevations/aerial-night.jpg"
-              alt="Sunshine Green Meadows Luxury Apartments Bowrampet"
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            <span className="absolute top-1 left-1 flex h-2 w-2">
+          {/* Glowing Aura Effect */}
+          <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-emerald-500/30 to-teal-500/30 opacity-70 blur-sm -z-10 group-hover:opacity-100 transition-opacity" />
+
+          {/* Radar Pulse & Ongoing Tag */}
+          <div className="flex items-center gap-1 mb-1">
+            <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
+            <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-emerald-400">
+              Ongoing
+            </span>
           </div>
 
-          {/* Project Details */}
-          <div className="flex-1 min-w-0 pr-1">
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/70 px-1.5 py-0.5 rounded border border-emerald-500/30">
-                <Sparkles className="w-2.5 h-2.5" />
-                <span>Ongoing Flagship</span>
-              </span>
-              <span className="text-[9px] sm:text-[10px] font-mono font-bold text-amber-300 uppercase tracking-wider bg-amber-950/60 px-1.5 py-0.5 rounded border border-amber-500/30">
-                90% Complete
-              </span>
-            </div>
-
-            <div className="font-display text-xs sm:text-sm font-bold text-white truncate mt-0.5 group-hover:text-emerald-300 transition-colors">
-              Sunshine Green Meadows
-            </div>
-
-            <div className="text-[10px] sm:text-xs text-slate-300 truncate font-sans">
-              2 & 3 BHK @ Bowrampet • Ready to Move In
-            </div>
+          {/* Mini Project Thumbnail */}
+          <div className="w-12 h-12 rounded-xl overflow-hidden border border-white/20 relative my-0.5 shadow-sm">
+            <img
+              src="/assets/projects/green-meadows/elevations/aerial-night.jpg"
+              alt="Sunshine Green Meadows"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            <span className="absolute bottom-0 inset-x-0 bg-emerald-950/90 text-emerald-300 text-[8px] font-mono font-bold text-center py-0.5 leading-none">
+              90% Ready
+            </span>
           </div>
 
-          {/* Action Arrow */}
-          <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 group-hover:bg-emerald-400 group-hover:translate-x-0.5 transition-all shadow-md shadow-emerald-500/30">
-            <ArrowRight className="w-4 h-4" />
+          {/* Project Title */}
+          <div className="font-display text-[11px] font-bold text-white leading-tight mt-1 group-hover:text-emerald-300 transition-colors line-clamp-1">
+            Green Meadows
+          </div>
+
+          {/* Configuration */}
+          <div className="text-[9px] font-mono font-semibold text-emerald-400 mt-0.5 tracking-wide">
+            2 & 3 BHK
           </div>
         </Link>
       </div>
