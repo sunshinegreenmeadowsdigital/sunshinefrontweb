@@ -27,13 +27,13 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Unified nav links: combined Gallery + Video Tour into "Gallery & Tour"
   const navLinks = [
     { href: '#overview', label: 'Overview' },
     { href: '#highlights', label: 'Highlights' },
     { href: '#amenities', label: 'Amenities' },
     { href: '#plans', label: 'Floor Plans' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#video', label: 'Video Tour' },
+    { href: '#gallery', label: 'Gallery & Tour' },
     { href: '#location', label: 'Location' },
     { href: '#faq', label: 'FAQ' },
   ]
@@ -53,9 +53,9 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
           : 'bg-white/90 backdrop-blur-sm border-b border-slate-100 py-2.5 sm:py-3'
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3 sm:gap-4">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand Logo & Corporate Badge */}
-        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+        <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
           <Link
             to="/sunshine-green-meadows"
             className="flex items-center group focus-visible:outline-none"
@@ -65,7 +65,7 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
               <img
                 src="/assets/branding/green-meadows-logo.png"
                 alt="Sunshine Green Meadows"
-                className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+                className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]"
                 onError={() => setLogoError(true)}
               />
             ) : (
@@ -81,62 +81,74 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
           </Link>
 
           {/* Return to Corporate Header Link */}
-          <div className="hidden sm:flex items-center pl-3 border-l border-slate-200">
+          <div className="hidden sm:flex items-center pl-2.5 border-l border-slate-200">
             <Link
               to="/"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium text-slate-600 hover:text-slate-900 bg-slate-50 border border-slate-200 hover:border-emerald-500/40 transition-all whitespace-nowrap"
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-slate-600 hover:text-slate-900 bg-slate-50 border border-slate-200 hover:border-emerald-500/40 transition-all whitespace-nowrap"
             >
               <ArrowLeft className="w-3 h-3 text-emerald-600" />
               <span>Corporate</span>
             </Link>
           </div>
 
-          {/* Ready to Move In Pill */}
-          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono font-bold uppercase tracking-wider shadow-xs">
+          {/* Ready to Move In Pill - shown on 2xl screens to avoid taking space on laptops */}
+          <div className="hidden 2xl:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono font-bold uppercase tracking-wider shadow-xs">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>90% Complete • Ready to Move In</span>
           </div>
         </div>
 
-        {/* Anchor Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-5" aria-label="Project Navigation">
+        {/* Anchor Navigation Links (Clean 7 items, compact & spacious) */}
+        <nav className="hidden xl:flex items-center gap-3.5 2xl:gap-5 min-w-0" aria-label="Project Navigation">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-xs font-semibold uppercase tracking-wider text-slate-600 hover:text-emerald-600 transition-colors py-1"
+              className="text-[11px] 2xl:text-xs font-semibold uppercase tracking-wider text-slate-600 hover:text-emerald-600 transition-colors py-1 whitespace-nowrap"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Actions: Direct Call, Book Visit, Enquire Now */}
-        <div className="flex items-center gap-2 sm:gap-2.5">
+        {/* Actions Container: Guaranteed shrink-0 to prevent clipping */}
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+          {/* Phone: Full text on 2xl, compact icon on smaller screens */}
           <a
             href={`tel:${siteConfig.contact.primaryPhoneTel}`}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium text-slate-800 bg-slate-50 border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition-colors whitespace-nowrap"
+            className="hidden 2xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-medium text-slate-800 bg-slate-50 border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition-colors whitespace-nowrap"
             aria-label={`Call direct sales at ${siteConfig.contact.primaryPhoneFormatted}`}
           >
             <Phone className="w-3.5 h-3.5 text-emerald-600" />
             <span>{siteConfig.contact.primaryPhoneFormatted}</span>
           </a>
 
+          <a
+            href={`tel:${siteConfig.contact.primaryPhoneTel}`}
+            className="hidden sm:inline-flex 2xl:hidden p-2 rounded-full text-emerald-700 bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 transition-colors cursor-pointer"
+            title={`Call direct sales at ${siteConfig.contact.primaryPhoneFormatted}`}
+            aria-label={`Call direct sales at ${siteConfig.contact.primaryPhoneFormatted}`}
+          >
+            <Phone className="w-3.5 h-3.5 text-emerald-600" />
+          </a>
+
+          {/* Highlighted CTA 1: Book Visit Button */}
           <button
             onClick={() =>
               onOpenModal({
                 type: 'quick',
                 source: 'Sunshine Green Meadows - Header: Book a Site Visit Button',
                 title: 'Book a Guided Site Visit',
-                subtitle: 'Select your preferences below to schedule a private walkthrough of Sunshine Green Meadows.',
+                subtitle: 'Select your preferences below to schedule a private walkthrough of Sunshine Green Meadows (Ready to Move In).',
               })
             }
-            className="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-50 hover:bg-slate-100 text-slate-800 border border-slate-200 hover:border-emerald-500/40 transition-all cursor-pointer whitespace-nowrap"
+            className="hidden md:inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-600 hover:border-emerald-700 shadow-xs hover:shadow-md transition-all cursor-pointer whitespace-nowrap active:scale-95"
           >
-            <Calendar className="w-3.5 h-3.5 text-emerald-600" />
+            <Calendar className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
             <span>Book Visit</span>
           </button>
 
+          {/* Highlighted CTA 2: Enquire Now Button */}
           <button
             onClick={() =>
               onOpenModal({
@@ -146,10 +158,10 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
                 subtitle: 'Select your preferences below to receive instant brochure and pricing details.',
               })
             }
-            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs hover:shadow-md transition-all cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-emerald-600 via-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-md shadow-emerald-600/25 ring-2 ring-emerald-500/20 hover:shadow-lg transition-all cursor-pointer whitespace-nowrap active:scale-95"
           >
-            <MessageSquare className="w-3.5 h-3.5" />
-            <span>Enquire</span>
+            <MessageSquare className="w-3.5 h-3.5 shrink-0" />
+            <span>Enquire Now</span>
           </button>
 
           {/* Mobile hamburger */}
@@ -198,7 +210,7 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
               <span>Call {siteConfig.contact.primaryPhoneFormatted}</span>
             </a>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2 pt-1">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false)
@@ -209,7 +221,7 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
                     subtitle: 'Select your preferences below to schedule a private walkthrough of Sunshine Green Meadows.',
                   })
                 }}
-                className="w-full text-center py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200 flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full text-center py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-emerald-800 border-2 border-emerald-600 flex items-center justify-center gap-1.5 shadow-xs cursor-pointer active:scale-95"
               >
                 <Calendar className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Book Visit</span>
@@ -225,10 +237,10 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
                     subtitle: 'Select your preferences below to receive instant brochure and pricing details.',
                   })
                 }}
-                className="w-full text-center py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full text-center py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
-                <span>Enquire</span>
+                <span>Enquire Now</span>
               </button>
             </div>
           </div>

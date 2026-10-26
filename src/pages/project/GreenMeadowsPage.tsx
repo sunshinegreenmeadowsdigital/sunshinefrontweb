@@ -11,8 +11,7 @@ import { ProjectHighlights } from '@/components/project/ProjectHighlights'
 import { ClubhouseShowcase } from '@/components/project/ClubhouseShowcase'
 import { AmenitiesSection } from '@/components/project/AmenitiesSection'
 import { FloorPlansViewer } from '@/components/project/FloorPlansViewer'
-import { PhotoGallery } from '@/components/project/PhotoGallery'
-import { VideoTour } from '@/components/project/VideoTour'
+import { ProjectMediaShowcase } from '@/components/project/ProjectMediaShowcase'
 import { LocationSection } from '@/components/project/LocationSection'
 import { ProjectEnquirySection } from '@/components/project/ProjectEnquirySection'
 import { FaqSection } from '@/components/project/FaqSection'
@@ -142,11 +141,8 @@ export const GreenMeadowsPage: React.FC = () => {
       {/* 7. Interactive Master Plan & Floor Plans Viewer with Lightbox */}
       <FloorPlansViewer onOpenEnquiry={(options) => onOpenModal(options || 'quick')} />
 
-      {/* 8. Authentic Architectural & Lifestyle Photo Gallery */}
-      <PhotoGallery />
-
-      {/* 9. Virtual Walkthrough Video Tour */}
-      <VideoTour />
+      {/* 8. Integrated Architectural Gallery & Virtual Video Walkthrough */}
+      <ProjectMediaShowcase />
 
       {/* 10. Strategic Bowrampet Location & Indicative Commute Matrix */}
       <LocationSection />
