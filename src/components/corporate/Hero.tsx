@@ -21,14 +21,15 @@ export const Hero: React.FC = () => {
             fetchPriority="high"
           />
         </picture>
-        {/* Luxury twilight dark gradients ensuring pristine readability on both mobile and desktop */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 via-55% to-slate-950/45 md:hidden pointer-events-none" />
+        {/* Full-bleed twilight dark shading: darkens the image evenly so text sits directly on the visual without any separate box */}
+        <div className="absolute inset-0 bg-slate-950/45 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/35 md:hidden pointer-events-none" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/20 pointer-events-none" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/50 pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full my-auto py-4 sm:py-8">
-        <div className="max-w-3xl space-y-3.5 sm:space-y-5 bg-slate-950/60 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-3.5 sm:p-0 rounded-2xl border border-white/10 sm:border-0 shadow-2xl sm:shadow-none">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-4 sm:py-8">
+        <div className="max-w-3xl space-y-3.5 sm:space-y-5">
           {/* Subtle Credibility Pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xs text-xs text-slate-200">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E06B2D] animate-pulse" />

@@ -32,15 +32,16 @@ export const GreenMeadowsHero: React.FC<GreenMeadowsHeroProps> = ({ onOpenModal 
             fetchPriority="high"
           />
         </picture>
-        {/* Mobile Gradient: Deep luxury dark twilight scrim to ensure razor-sharp text contrast over illuminated building facades */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 via-55% to-slate-950/40 md:hidden pointer-events-none" />
+        {/* Full-bleed twilight dark shading: darkens the entire background image evenly so text sits directly on the visual without any separate box */}
+        <div className="absolute inset-0 bg-slate-950/45 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 via-50% to-slate-950/30 md:hidden pointer-events-none" />
         {/* Desktop Luxury Twilight Gradients */}
         <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-slate-950/60 pointer-events-none" />
         <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full py-4 sm:py-10">
-        <div className="max-w-3xl space-y-3 sm:space-y-6 bg-slate-950/60 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-3.5 sm:p-0 rounded-2xl border border-white/10 sm:border-0 shadow-2xl sm:shadow-none">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 sm:py-10">
+        <div className="max-w-3xl space-y-3 sm:space-y-6">
           {/* Eyebrow & Credibility Pill */}
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5">
             <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider sm:tracking-widest text-emerald-300">
