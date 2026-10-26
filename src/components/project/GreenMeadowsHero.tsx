@@ -61,6 +61,11 @@ export const GreenMeadowsHero: React.FC<GreenMeadowsHeroProps> = ({ onOpenModal 
             <span className="inline-flex items-center gap-1 px-2 sm:px-3 py-0.5 sm:py-1.5 rounded-full bg-emerald-500/25 backdrop-blur-md border border-emerald-400/40 text-[10px] sm:text-xs text-emerald-300 font-mono font-bold">
               <span>90% Complete</span>
             </span>
+
+            <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-0.5 sm:py-1.5 rounded-full bg-emerald-500 text-white font-mono font-bold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              <span>Ready to Move In</span>
+            </span>
           </div>
 
           {/* Headline */}
@@ -71,7 +76,7 @@ export const GreenMeadowsHero: React.FC<GreenMeadowsHeroProps> = ({ onOpenModal 
 
           {/* Supporting Copy - Compact 2 lines */}
           <p className="font-sans text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed max-w-2xl font-normal line-clamp-2 sm:line-clamp-none">
-            Discover thoughtfully designed 2 & 3 BHK residences at Sunshine Green Meadows, Bowrampet, Hyderabad — everyday luxury engineered for mindful living.
+            Discover thoughtfully designed 2 & 3 BHK residences at Sunshine Green Meadows, Bowrampet, Hyderabad — 90% complete and ready to move in soon.
           </p>
 
           {/* Concise 4-Column Project Highlight Chips (1 compact row on mobile) */}

@@ -47,13 +47,16 @@ export const StickyActionBar: React.FC<StickyActionBarProps> = ({ onOpenModal })
             type: 'quick',
             source: 'Sunshine Green Meadows - Mobile Sticky Bar: Book a Site Visit Button',
             title: 'Book a Guided Site Visit',
-            subtitle: 'Select your preferences below to schedule a private walkthrough of Sunshine Green Meadows.',
+            subtitle: 'Select your preferences below to schedule a private walkthrough of Sunshine Green Meadows (90% Complete — Ready to Move In).',
           })
         }
-        className="flex-[1.4] flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-md active:bg-emerald-700 cursor-pointer"
+        className="flex-[1.4] flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-md active:bg-emerald-700 cursor-pointer"
       >
-        <Calendar className="w-3.5 h-3.5" />
-        <span>Book Visit</span>
+        <Calendar className="w-3.5 h-3.5 shrink-0" />
+        <span className="flex flex-col items-center leading-tight">
+          <span>Book Visit</span>
+          <span className="text-[9px] font-mono font-medium text-emerald-200 normal-case tracking-normal">Ready to Move</span>
+        </span>
       </button>
     </aside>
   )

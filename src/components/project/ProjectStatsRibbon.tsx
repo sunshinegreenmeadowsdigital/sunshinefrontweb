@@ -3,9 +3,16 @@ import { Building2, Home, Sparkles, Map } from 'lucide-react'
 
 export const ProjectStatsRibbon: React.FC = () => {
   return (
-    <section className="relative bg-slate-50 border-y border-slate-200 py-6 sm:py-8 md:py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center">
+    <section className="relative bg-slate-50 border-y border-slate-200">
+      {/* Highlighted Status Banner */}
+      <div className="bg-gradient-to-r from-emerald-800 via-emerald-700 to-emerald-800 text-white py-2 px-4 flex items-center justify-center gap-2 text-[11px] sm:text-xs font-mono font-semibold tracking-wider uppercase shadow-xs">
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <span>Construction 90% Complete • Ready to Move In Residences</span>
+      </div>
+
+      <div className="py-6 sm:py-8 md:py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-center">
           {/* Stat 1: Total Land Extent */}
           <div className="flex flex-col items-center justify-center p-2.5 pt-4 md:pt-2.5">
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-100/70 flex items-center justify-center text-emerald-700 mb-1.5">
@@ -87,6 +94,7 @@ export const ProjectStatsRibbon: React.FC = () => {
           </div>
         </div>
       </div>
+    </div>
     </section>
   )
 }

@@ -40,9 +40,15 @@ export const LifestyleIntro: React.FC = () => {
           {/* Right Column: Editorial Philosophy Narrative */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-2">
-              <span className="text-xs font-mono uppercase tracking-[0.2em] text-emerald-700 font-semibold">
-                Lifestyle Philosophy
-              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-mono uppercase tracking-[0.2em] text-emerald-700 font-semibold">
+                  Lifestyle Philosophy
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                  <span>90% Complete • Ready to Move In</span>
+                </span>
+              </div>
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-[1.14]">
                 Where Natural Tranquility Meets <span className="italic font-normal text-emerald-700">Urban Comfort.</span>
               </h2>

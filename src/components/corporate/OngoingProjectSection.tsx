@@ -11,9 +11,15 @@ export const OngoingProjectSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6">
           <div className="space-y-1.5 sm:space-y-2">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-200">
-              <Trees className="w-3.5 h-3.5" />
-              <span>Flagship Ongoing Development</span>
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <Trees className="w-3.5 h-3.5" />
+                <span>90% Complete</span>
+              </div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                <span>Ready to Move In</span>
+              </div>
             </div>
             <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-slate-900">
               Sunshine Green Meadows
@@ -53,8 +59,13 @@ export const OngoingProjectSection: React.FC = () => {
                   <MapPin className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Bowrampet, Medchal, Hyderabad</span>
                 </div>
-                <div className="font-mono text-emerald-300 font-semibold text-[10px] sm:text-xs">
-                  90% Complete • HMDA Approved
+                <div className="flex items-center gap-2 font-mono text-[10px] sm:text-xs">
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-500 text-slate-950 font-bold uppercase tracking-wider shadow-xs">
+                    Ready to Move In
+                  </span>
+                  <span className="font-semibold text-emerald-300 hidden sm:inline">
+                    90% Complete • HMDA
+                  </span>
                 </div>
               </div>
             </div>
@@ -115,6 +126,10 @@ export const OngoingProjectSection: React.FC = () => {
 
             {/* Highlighted Amenities List */}
             <ul className="space-y-1.5 text-xs text-slate-700">
+              <li className="flex items-center gap-2 font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1.5 rounded-lg border border-emerald-200">
+                <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>90% Construction Complete — Ready to Move In</span>
+              </li>
               <li className="flex items-center gap-2">
                 <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>Rooftop swimming pool & AC fitness gymnasium</span>

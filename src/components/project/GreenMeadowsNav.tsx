@@ -90,6 +90,12 @@ export const GreenMeadowsNav: React.FC<GreenMeadowsNavProps> = ({ onOpenModal })
               <span>Corporate</span>
             </Link>
           </div>
+
+          {/* Ready to Move In Pill */}
+          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono font-bold uppercase tracking-wider shadow-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span>90% Complete • Ready to Move In</span>
+          </div>
         </div>
 
         {/* Anchor Navigation Links */}

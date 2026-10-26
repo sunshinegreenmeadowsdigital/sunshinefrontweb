@@ -79,8 +79,14 @@ export const Footer: React.FC<FooterProps> = () => {
               <div className="text-[11px] text-slate-500">
                 {siteConfig.greenMeadows.location}
               </div>
-              <div className="text-[11px] text-emerald-700 font-mono font-medium">
-                {siteConfig.greenMeadows.status}
+              <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  90% Complete
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-600 text-white shadow-xs">
+                  <span className="w-1 h-1 rounded-full bg-white animate-pulse" />
+                  <span>Ready to Move In</span>
+                </span>
               </div>
               <div className="pt-1">
                 <Link

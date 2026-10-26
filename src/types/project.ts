@@ -33,7 +33,8 @@ export interface ProjectSpecs {
   blocksCount: number
   unitsCount: number
   configurations: string[]
-  constructionStatus: string // "Ongoing (90% Complete)"
+  constructionStatus: string // "90% Complete — Ready to Move In"
+  isReadyToMove?: boolean
   reraRegistrationNumber: string
   hmdaApproved: boolean
 }

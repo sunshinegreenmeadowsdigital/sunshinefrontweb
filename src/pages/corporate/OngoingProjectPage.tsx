@@ -49,9 +49,14 @@ export const OngoingProjectPage: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-3 sm:space-y-4">
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider text-emerald-800">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Current Flagship Development</span>
+                <span>90% Complete</span>
+              </span>
+
+              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                <span>Ready to Move In</span>
               </span>
 
               <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white border border-slate-200 text-[10px] sm:text-xs font-mono text-slate-700 shadow-xs">
@@ -125,11 +130,11 @@ export const OngoingProjectPage: React.FC = () => {
               <div className="font-display text-xl sm:text-2xl font-bold text-emerald-700">
                 90% Complete
               </div>
-              <div className="text-[10px] sm:text-xs uppercase font-mono tracking-wider text-slate-500 mt-0.5">
-                Construction Status
+              <div className="text-[10px] sm:text-xs uppercase font-mono tracking-wider text-emerald-800 font-bold mt-0.5">
+                Ready to Move In
               </div>
-              <div className="text-[9px] text-emerald-600 font-mono mt-0.5 font-medium">
-                Finishing in Progress
+              <div className="text-[9px] text-slate-500 font-mono mt-0.5 font-medium">
+                Finishing Stage
               </div>
             </div>
 
