@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { SEO } from '@/components/shared/SEO'
 import { Button } from '@/components/shared/Button'
 import {
   BookOpen,
@@ -77,14 +78,6 @@ export const BlogPage: React.FC = () => {
   const [activeArticle, setActiveArticle] = useState<Article | null>(null)
 
   useEffect(() => {
-    document.title = 'Insights & Real Estate Perspectives | Sunshine Infra Hyderabad'
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Read expert real estate insights, Bowrampet growth guides, HMDA/RERA buyer checklists, and architectural perspectives curated by Sunshine Infra.'
-      )
-    }
     window.scrollTo(0, 0)
   }, [])
 
@@ -97,6 +90,31 @@ export const BlogPage: React.FC = () => {
 
   return (
     <div className="w-full bg-white text-slate-900 min-h-screen">
+      <SEO
+        title="Real Estate Insights & Buyer Guides | Sunshine Infra Hyderabad"
+        description="Read expert real estate guides on Bowrampet growth, TS RERA & HMDA compliance, and Vaastu apartment design in Hyderabad curated by Sunshine Infra."
+        canonicalUrl="https://sunshineinfra.in/blog"
+        keywords={[
+          'real estate insights Hyderabad',
+          'Bowrampet growth corridor',
+          'TS RERA checklist',
+          'HMDA approvals guide',
+          'Vaastu apartments Hyderabad',
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Blog',
+          name: 'Sunshine Infra Real Estate Insights',
+          url: 'https://sunshineinfra.in/blog',
+          description: 'Perspectives on residential property, urban infrastructure, and homebuyer guidance in Hyderabad.',
+          publisher: {
+            '@type': 'Organization',
+            name: 'Sunshine Infra',
+            logo: 'https://sunshineinfra.in/assets/branding/sunshine-logo.png',
+          },
+        }}
+      />
+
       {/* 1. Page Header */}
       <section className="relative pt-24 sm:pt-32 pb-10 sm:pb-16 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-slate-50 via-white to-white">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

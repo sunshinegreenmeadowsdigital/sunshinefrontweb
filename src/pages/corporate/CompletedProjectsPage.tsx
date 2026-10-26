@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { SEO } from '@/components/shared/SEO'
 import { completedProjectsData, type CompletedProject } from '@/data/projects'
 import { projectRoutes } from '@/data/routes'
 import { Button } from '@/components/shared/Button'
@@ -17,14 +18,6 @@ export const CompletedProjectsPage: React.FC = () => {
   const [activeProject, setActiveProject] = useState<CompletedProject | null>(null)
 
   useEffect(() => {
-    document.title = 'Completed Residential Projects | Sunshine Infra Hyderabad'
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Explore delivered residential projects by Sunshine Infra across Kokapet, Narsingi, Jubilee Hills, Pragathi Nagar, and Hafeezpet. 15+ years of verified construction excellence.'
-      )
-    }
     window.scrollTo(0, 0)
   }, [])
 
@@ -49,6 +42,38 @@ export const CompletedProjectsPage: React.FC = () => {
 
   return (
     <div className="w-full bg-white text-slate-900 min-h-screen">
+      <SEO
+        title="Completed Residential Projects | Sunshine Infra Hyderabad"
+        description="Explore delivered gated communities and residential landmarks by Sunshine Infra in Kokapet, Narsingi, Jubilee Hills, Hafeezpet, and Pragathi Nagar. 15+ years of verified construction excellence."
+        canonicalUrl="https://sunshineinfra.in/completed-projects"
+        keywords={[
+          'completed residential projects Hyderabad',
+          'delivered apartments Hyderabad',
+          'Sunshine Infra past projects',
+          'apartments in Kokapet',
+          'flats in Narsingi',
+          'luxury builders Hyderabad',
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://sunshineinfra.in/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Completed Projects',
+              item: 'https://sunshineinfra.in/completed-projects',
+            },
+          ],
+        }}
+      />
+
       {/* 1. Page Header */}
       <section className="relative pt-24 sm:pt-32 pb-10 sm:pb-16 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-slate-50 via-white to-white">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { Navigation } from '@/components/shared/Navigation'
 import { Footer } from '@/components/shared/Footer'
 import { MobileFloatingContact } from '@/components/shared/MobileFloatingContact'
+import { FloatingProjectPill } from '@/components/shared/FloatingProjectPill'
 import { useAnalytics } from '@/hooks/useAnalytics'
 
 export const CorporateLayout: React.FC = () => {
@@ -19,6 +20,9 @@ export const CorporateLayout: React.FC = () => {
         <Outlet />
       </main>
       <Footer theme="corporate" />
+
+      {/* Floating Ongoing Project Callout Widget */}
+      <FloatingProjectPill />
 
       {/* Fixed Call & WhatsApp floating action buttons on mobile across all corporate pages */}
       <MobileFloatingContact />

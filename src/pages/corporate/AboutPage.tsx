@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { SEO } from '@/components/shared/SEO'
 import { projectRoutes } from '@/data/routes'
 import { Button } from '@/components/shared/Button'
 import {
@@ -16,14 +17,6 @@ import {
 
 export const AboutPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'About Sunshine Infra | 15+ Years of Real Estate Excellence in Hyderabad'
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Learn about Sunshine Infra, Hyderabad’s premier real estate developer with 15+ years of experience, 1000+ residences delivered, and our signature Design, Construct, Deliver approach.'
-      )
-    }
     window.scrollTo(0, 0)
   }, [])
 
@@ -90,6 +83,34 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="w-full bg-white text-slate-900 min-h-screen">
+      <SEO
+        title="About Sunshine Infra | 15+ Years Building Trust in Hyderabad Real Estate"
+        description="Learn about Sunshine Infra, Hyderabad's trusted real estate developer with 15+ years of excellence, 1,000+ homes delivered, and an uncompromised commitment to quality construction."
+        canonicalUrl="https://sunshineinfra.in/about"
+        keywords={[
+          'About Sunshine Infra',
+          'real estate developer Hyderabad',
+          'builders in Hyderabad',
+          'trusted builders Hyderabad',
+          'Sunshine Infra Bowrampet',
+          'residential developers Hyderabad',
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: 'About Sunshine Infra',
+          url: 'https://sunshineinfra.in/about',
+          mainEntity: {
+            '@type': 'Organization',
+            name: 'Sunshine Infra',
+            foundingDate: '2011',
+            description: 'Premier real estate development firm in Hyderabad specializing in design-led gated communities.',
+            url: 'https://sunshineinfra.in',
+            logo: 'https://sunshineinfra.in/assets/branding/sunshine-logo.png',
+          },
+        }}
+      />
+
       {/* 1. Hero Header */}
       <section className="relative pt-24 sm:pt-32 pb-10 sm:pb-16 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-slate-50 via-white to-white">
         <div className="absolute inset-0 opacity-15 pointer-events-none">

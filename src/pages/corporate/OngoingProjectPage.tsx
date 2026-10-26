@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { SEO } from '@/components/shared/SEO'
 import { siteConfig } from '@/config/site'
 import { projectRoutes } from '@/data/routes'
 import { Button } from '@/components/shared/Button'
@@ -13,14 +14,6 @@ import {
 
 export const OngoingProjectPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Ongoing Flagship Project | Sunshine Green Meadows Bowrampet'
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Discover Sunshine Green Meadows by Sunshine Infra at Bowrampet, Hyderabad. 4 Blocks, 236 Units of 2 & 3 BHK luxury residences, HMDA approved & TS RERA registered (P02200006843).'
-      )
-    }
     window.scrollTo(0, 0)
   }, [])
 
@@ -35,6 +28,38 @@ export const OngoingProjectPage: React.FC = () => {
 
   return (
     <div className="w-full bg-white text-slate-900 min-h-screen">
+      <SEO
+        title="Ongoing Residential Projects in Hyderabad | Sunshine Green Meadows Bowrampet"
+        description="Explore ongoing projects by Sunshine Infra. Flagship development Sunshine Green Meadows features 2 & 3 BHK luxury residences in Bowrampet, Hyderabad. 90% complete, HMDA & TS RERA approved."
+        canonicalUrl="https://sunshineinfra.in/ongoing-project"
+        keywords={[
+          'ongoing residential projects in Hyderabad',
+          'under construction apartments in Bowrampet',
+          'Sunshine Green Meadows ongoing project',
+          'ready to move flats in Bowrampet',
+          'TS RERA registered projects Hyderabad',
+          'HMDA approved flats Bowrampet',
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://sunshineinfra.in/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Ongoing Project',
+              item: 'https://sunshineinfra.in/ongoing-project',
+            },
+          ],
+        }}
+      />
+
       {/* 1. Header Banner */}
       <section className="relative pt-24 sm:pt-32 pb-10 sm:pb-16 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-slate-50 via-white to-white">
         <div className="absolute inset-0 opacity-20 pointer-events-none">

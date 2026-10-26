@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { ArrowRight, MessageSquare, ShieldCheck, Award } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, MessageSquare, ShieldCheck, Award, Sparkles } from 'lucide-react'
+import { projectRoutes } from '@/data/routes'
 import { EnquiryModal } from '@/components/shared/EnquiryModal'
 
 export const Hero: React.FC = () => {
@@ -29,7 +31,7 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto py-4 sm:py-8">
-        <div className="max-w-3xl space-y-3.5 sm:space-y-5">
+        <div className="max-w-3xl space-y-3 sm:space-y-4">
           {/* Subtle Credibility Pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xs text-xs text-slate-200">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E06B2D] animate-pulse" />
@@ -51,13 +53,43 @@ export const Hero: React.FC = () => {
             Creating visionary living across Hyderabad's premier corridors, where architectural elegance meets enduring community trust.
           </p>
 
+          {/* High-Converting Flagship Callout: Instant Discovery for Sunshine Green Meadows */}
+          <Link
+            to={projectRoutes.greenMeadows}
+            className="group relative flex items-center justify-between gap-3 p-2.5 sm:p-3 rounded-2xl bg-gradient-to-r from-emerald-950/85 via-slate-900/85 to-slate-950/85 border border-emerald-500/40 hover:border-emerald-400 backdrop-blur-md shadow-xl hover:shadow-emerald-500/20 transition-all cursor-pointer max-w-xl"
+          >
+            <div className="flex items-center gap-2.5 min-w-0">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="inline-flex items-center gap-1 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-emerald-300">
+                    <Sparkles className="w-2.5 h-2.5" />
+                    <span>Ongoing Project</span>
+                  </span>
+                  <span className="text-white/30">•</span>
+                  <span className="text-[10px] sm:text-xs font-mono font-bold text-amber-300 uppercase">
+                    90% Complete — Ready to Move In
+                  </span>
+                </div>
+                <div className="text-xs sm:text-sm font-display font-bold text-white group-hover:text-emerald-300 transition-colors truncate">
+                  Sunshine Green Meadows — 2 & 3 BHK @ Bowrampet
+                </div>
+              </div>
+            </div>
+            <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500 group-hover:bg-emerald-400 text-white shrink-0 shadow-md">
+              <span className="hidden sm:inline">Explore Project</span>
+              <span className="sm:hidden">View</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </div>
+          </Link>
+
           {/* Primary & Secondary CTAs */}
-          <div className="pt-0.5 sm:pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3.5">
+          <div className="pt-0.5 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3.5">
             <a
               href="#ongoing-project"
               className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider bg-[#E06B2D] hover:bg-[#F27C3E] text-white shadow-lg shadow-[#E06B2D]/25 transition-all cursor-pointer"
             >
-              <span>Explore Our Projects</span>
+              <span>Explore All Projects</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
 

@@ -71,6 +71,9 @@ export const GreenMeadowsHero: React.FC<GreenMeadowsHeroProps> = ({ onOpenModal 
 
           {/* Headline */}
           <h1 className="font-display text-2xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
+            <span className="block text-[11px] sm:text-sm md:text-base font-mono uppercase tracking-[0.18em] text-emerald-300 font-semibold mb-1 sm:mb-2 drop-shadow-sm">
+              2 & 3 BHK Luxury Apartments in Bowrampet, Hyderabad
+            </span>
             A Greener Way to <br />
             <span className="italic font-normal text-emerald-400">Come Home.</span>
           </h1>

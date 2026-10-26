@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { SEO } from '@/components/shared/SEO'
 import { EnquiryForm } from '@/components/forms/EnquiryForm'
 import { siteConfig } from '@/config/site'
 import {
@@ -13,19 +14,44 @@ import {
 
 export const ContactPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Contact Sunshine Infra | Corporate Sales & Site Office'
-    const metaDesc = document.querySelector('meta[name="description"]')
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        'content',
-        'Contact Sunshine Infra Hyderabad. Reach our sales office at Bowrampet, call +91 7997482222, or email sales@sunshineinfra.in for appointments and project details.'
-      )
-    }
     window.scrollTo(0, 0)
   }, [])
 
   return (
     <div className="w-full bg-white text-slate-900 min-h-screen">
+      <SEO
+        title="Contact Sunshine Infra | Sales Office Bowrampet & Project Inquiries"
+        description="Contact Sunshine Infra Hyderabad. Reach our sales office at Bowrampet, call +91 7997482222, or schedule a guided site visit for Sunshine Green Meadows."
+        canonicalUrl="https://sunshineinfra.in/contact"
+        keywords={[
+          'contact Sunshine Infra',
+          'Sunshine Green Meadows phone number',
+          'site office Bowrampet',
+          'book site visit Hyderabad',
+          'Sunshine Infra address',
+        ]}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: 'Contact Sunshine Infra',
+          url: 'https://sunshineinfra.in/contact',
+          mainEntity: {
+            '@type': 'RealEstateAgent',
+            name: 'Sunshine Infra Sales & Site Office',
+            telephone: '+91-7997482222',
+            email: 'sales@sunshineinfra.in',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Survey No. 536, Near HP Petrol Bunk, DPS Road, Bowrampet',
+              addressLocality: 'Hyderabad',
+              addressRegion: 'Telangana',
+              postalCode: '500043',
+              addressCountry: 'IN',
+            },
+            openingHours: 'Mo-Su 10:00-18:30',
+          },
+        }}
+      />
       {/* 1. Page Header */}
       <section className="relative pt-24 sm:pt-32 pb-10 sm:pb-16 overflow-hidden border-b border-slate-200/80 bg-gradient-to-b from-slate-50 via-white to-white">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
