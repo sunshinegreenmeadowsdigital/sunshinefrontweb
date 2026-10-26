@@ -100,7 +100,7 @@ export const floorPlansData: FloorPlanItem[] = [
 export interface GalleryItem {
   id: string
   title: string
-  category: 'Architectural Renders' | 'Interior Living' | 'Clubhouse' | 'Landscape'
+  category: 'Architectural Renders' | 'Living Spaces' | 'Clubhouse' | 'Landscape'
   image: string
   alt: string
 }
@@ -123,7 +123,7 @@ export const galleryData: GalleryItem[] = [
   {
     id: 'living-view',
     title: 'Expansive Living & Dining Suite',
-    category: 'Interior Living',
+    category: 'Living Spaces',
     image: '/assets/projects/green-meadows/gallery/living-view.jpg',
     alt: '3 BHK Living Room Perspective at Green Meadows',
   },
@@ -137,7 +137,7 @@ export const galleryData: GalleryItem[] = [
   {
     id: 'bedroom-view',
     title: 'Comfortable Bedroom Design',
-    category: 'Interior Living',
+    category: 'Living Spaces',
     image: '/assets/projects/green-meadows/gallery/bedroom-view.jpg',
     alt: '2 BHK Bedroom Layout View at Green Meadows',
   },

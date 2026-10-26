@@ -25,7 +25,7 @@ export const ProjectMediaShowcase: React.FC = () => {
     return () => window.removeEventListener('hashchange', handleHash)
   }, [])
 
-  const categories = ['All', 'Architectural Renders', 'Interior Living', 'Clubhouse', 'Landscape']
+  const categories = ['All', 'Architectural Renders', 'Living Spaces', 'Clubhouse', 'Landscape']
 
   const filteredImages =
     selectedCategory === 'All'

@@ -28,10 +28,10 @@ export const LifestyleIntro: React.FC = () => {
               />
               <div className="p-2.5">
                 <div className="text-[11px] font-mono uppercase text-emerald-700 font-semibold tracking-wider">
-                  Considered Interiors
+                  Spacious Living Spaces
                 </div>
                 <div className="text-xs text-slate-800 font-medium mt-0.5">
-                  Natural Daylight & Ventilation
+                  Natural Daylight & Cross-Ventilation
                 </div>
               </div>
             </div>
