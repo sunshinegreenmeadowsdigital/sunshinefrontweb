@@ -14,6 +14,7 @@ const CompletedProjectsPage = lazy(() => import('@/pages/corporate/CompletedProj
 const BlogPage = lazy(() => import('@/pages/corporate/BlogPage').then(m => ({ default: m.BlogPage })))
 const ContactPage = lazy(() => import('@/pages/corporate/ContactPage').then(m => ({ default: m.ContactPage })))
 const GreenMeadowsPage = lazy(() => import('@/pages/project/GreenMeadowsPage').then(m => ({ default: m.GreenMeadowsPage })))
+const ThankYouPage = lazy(() => import('@/pages/ThankYouPage').then(m => ({ default: m.ThankYouPage })))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })))
 
 const PageLoadingFallback: React.FC = () => (
@@ -62,7 +63,15 @@ export const App: React.FC = () => {
 
             {/* Legacy URL compatibility preservation as required by audit */}
             <Route path="/sunshine-green-meadows/index.html" element={<GreenMeadowsPage />} />
+
+            {/* Project Confirmation / Thank You */}
+            <Route path="/sunshine-green-meadows/thank-you" element={<ThankYouPage />} />
+            <Route path="/sunshine-green-meadows/thank-you/" element={<ThankYouPage />} />
           </Route>
+
+          {/* Global Confirmation / Thank You Page */}
+          <Route path="/thank-you" element={<ThankYouPage />} />
+          <Route path="/thank-you/" element={<ThankYouPage />} />
 
           {/* 404 Catch-All */}
           <Route path="*" element={<NotFoundPage />} />

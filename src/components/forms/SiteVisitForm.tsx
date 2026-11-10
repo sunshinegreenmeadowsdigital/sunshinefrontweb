@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { siteVisitSchema, type SiteVisitData, type SubmissionStatus } from '@/types/lead'
@@ -20,6 +21,7 @@ export const SiteVisitForm: React.FC<SiteVisitFormProps> = ({
   projectInterest = 'Sunshine Green Meadows',
 }) => {
   const [status, setStatus] = useState<SubmissionStatus>('idle')
+  const navigate = useNavigate()
   const [statusMessage, setStatusMessage] = useState<string>('')
   const [mountTimestamp] = useState<number>(() => Date.now())
 
@@ -59,6 +61,14 @@ export const SiteVisitForm: React.FC<SiteVisitFormProps> = ({
       if (result.success) {
         setStatus('success')
         setStatusMessage(result.message)
+        if (onSuccess) onSuccess()
+        navigate('/thank-you', {
+          state: {
+            leadType: 'site_visit',
+            name: data.fullName.trim(),
+            project: projectInterest,
+          },
+        })
       } else {
         setStatus('error')
         setStatusMessage(result.message)

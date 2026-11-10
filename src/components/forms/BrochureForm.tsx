@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { brochureRequestSchema, type BrochureRequestData, type SubmissionStatus } from '@/types/lead'
@@ -20,6 +21,7 @@ export const BrochureForm: React.FC<BrochureFormProps> = ({
   projectInterest = 'Sunshine Green Meadows',
 }) => {
   const [status, setStatus] = useState<SubmissionStatus>('idle')
+  const navigate = useNavigate()
   const [statusMessage, setStatusMessage] = useState<string>('')
   const [mountTimestamp] = useState<number>(() => Date.now())
 
@@ -57,6 +59,14 @@ export const BrochureForm: React.FC<BrochureFormProps> = ({
       if (result.success) {
         setStatus('success')
         setStatusMessage(result.message)
+        if (onSuccess) onSuccess()
+        navigate('/thank-you', {
+          state: {
+            leadType: 'brochure_request',
+            name: data.fullName.trim(),
+            project: projectInterest,
+          },
+        })
       } else {
         setStatus('error')
         setStatusMessage(result.message)

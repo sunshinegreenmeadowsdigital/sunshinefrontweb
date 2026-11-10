@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -40,6 +41,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   source,
 }) => {
   const [homeType, setHomeType] = useState<string>('2 BHK')
+  const navigate = useNavigate()
   const [timeline, setTimeline] = useState<string>('1–3 months')
   const [budget, setBudget] = useState<string>('₹60–75 Lakhs')
 
@@ -85,6 +87,14 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         setStatusMessage(
           'Thank you! Your preferences and details have been received. Our sales team will share the brochure & pricing directly via WhatsApp / Call.'
         )
+        if (onSuccess) onSuccess()
+        navigate('/thank-you', {
+          state: {
+            leadType: 'general_enquiry',
+            name: data.fullName.trim(),
+            project: projectInterest,
+          },
+        })
       } else {
         setStatus('error')
         setStatusMessage(result.message || 'Submission failed. Please verify your details.')

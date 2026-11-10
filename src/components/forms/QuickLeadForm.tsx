@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -47,6 +48,7 @@ export const QuickLeadForm: React.FC<QuickLeadFormProps> = ({
   defaultHomeType = '2 BHK',
 }) => {
   const [step, setStep] = useState<1 | 2>(1)
+  const navigate = useNavigate()
   const [homeType, setHomeType] = useState<string>(defaultHomeType)
   const [timeline, setTimeline] = useState<string>('1–3 months')
   const [budget, setBudget] = useState<string>('₹60–75 Lakhs')
@@ -93,6 +95,15 @@ export const QuickLeadForm: React.FC<QuickLeadFormProps> = ({
         setStatusMessage(
           'Thank you! Our property specialist will share the official blueprints and transparent pricing directly via WhatsApp / Call.'
         )
+        if (onClose) onClose()
+        if (onSuccess) onSuccess()
+        navigate('/thank-you', {
+          state: {
+            leadType: 'general_enquiry',
+            name: data.fullName.trim(),
+            project: projectInterest,
+          },
+        })
       } else {
         setStatus('error')
         setStatusMessage(result.message || 'Submission failed. Please check your entries.')
