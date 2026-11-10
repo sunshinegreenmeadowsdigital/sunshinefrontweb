@@ -49,10 +49,25 @@
       Identified credentials preserved from live site audit:
       - Google Tag Manager (GTM): GTM-N9GFV22K
       - Google Analytics 4 (GA4): G-EEDQJJHKV9
-      - Meta Pixel ID: 696710413232998
+      - Meta Pixel ID: 2142803196313062
       - Google Search Console: 0uiE8pFcVbql918cH34s-WRejjUWIbnD1-QzssrB714
     -->
     <meta name="google-site-verification" content="0uiE8pFcVbql918cH34s-WRejjUWIbnD1-QzssrB714" />
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '2142803196313062');
+      fbq('track', 'PageView');
+    </script>
+    <!-- End Meta Pixel Code -->
 
     <!-- Structured Data: Organization JSON-LD -->
     <script type="application/ld+json">
@@ -82,6 +97,11 @@
     </script>
   </head>
   <body>
+    <!-- Meta Pixel Fallback (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=2142803196313062&ev=PageView&noscript=1"
+      alt=""
+    /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

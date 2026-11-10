@@ -4,7 +4,7 @@
  * Identified Tracking Credentials from live audit:
  * - Google Tag Manager: GTM-N9GFV22K
  * - Google Analytics 4: G-EEDQJJHKV9
- * - Meta Pixel: 696710413232998
+ * - Meta Pixel: 2142803196313062
  * - Google Site Verification: 0uiE8pFcVbql918cH34s-WRejjUWIbnD1-QzssrB714
  *
  * Rules:
@@ -17,7 +17,7 @@ export const analyticsConfig = {
   enabled: import.meta.env.PROD, // Default to production only
   gtmId: 'GTM-N9GFV22K',
   ga4Id: 'G-EEDQJJHKV9',
-  metaPixelId: '696710413232998',
+  metaPixelId: '2142803196313062',
   events: {
     PAGE_VIEW: 'page_view',
     LEAD_SUBMISSION: 'generate_lead',

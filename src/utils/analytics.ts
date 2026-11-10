@@ -59,6 +59,9 @@ export function trackEvent(eventName: string, params: Record<string, unknown> = 
   }
 
   if (typeof window.fbq === 'function') {
+    if (eventName === analyticsConfig.events.LEAD_SUBMISSION) {
+      window.fbq('track', 'Lead', params)
+    }
     window.fbq('trackCustom', eventName, params)
   }
 
