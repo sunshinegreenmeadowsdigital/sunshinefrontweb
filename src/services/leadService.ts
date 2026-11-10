@@ -57,7 +57,30 @@ export async function submitLead(payload: LeadPayload): Promise<SubmissionResult
     project: payload.projectInterest,
   })
 
-  // 5. Remote Endpoint or Honest Local Staging
+  // 5. Server-side Meta Conversions API (CAPI) dispatch
+  try {
+    fetch('/api/meta-conversions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        fullName: payload.fullName,
+        phone: payload.phone,
+        email: (payload as Record<string, unknown>).email || '',
+        projectInterest: payload.projectInterest || 'Sunshine Green Meadows',
+        leadType: payload.leadType,
+        source: payload.source || 'Website Lead',
+        pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+      }),
+    }).catch((capiErr) => {
+      console.debug('[Meta CAPI non-blocking error]:', capiErr)
+    })
+  } catch {
+    // Non-blocking safe execution
+  }
+
+  // 6. Remote Endpoint or Honest Local Staging
   const endpoint = import.meta.env.VITE_LEAD_SUBMISSION_ENDPOINT
 
   // Prepare standardized Google Sheets row payload

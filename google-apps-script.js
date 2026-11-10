@@ -108,6 +108,9 @@ function doPost(e) {
     var lastRow = sheet.getLastRow();
     sheet.getRange(lastRow, 1, 1, 9).setVerticalAlignment("middle");
 
+    // Optional: Send server-to-server lead event to Meta Conversions API (CAPI)
+    sendMetaConversionsApi(fullName, data.phone || "", email, projectInterest, leadType, data.pageUrl || "");
+
     return ContentService
       .createTextOutput(JSON.stringify({ status: "success", row: lastRow }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -116,6 +119,67 @@ function doPost(e) {
     return ContentService
       .createTextOutput(JSON.stringify({ status: "error", message: error.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// Meta Conversions API (CAPI) Server-to-Server Lead Dispatcher
+function sendMetaConversionsApi(fullName, phone, email, projectInterest, leadType, pageUrl) {
+  try {
+    var datasetId = "2142803196313062";
+    var accessToken = "EAAX440J46MkBS009z9N4G1ZB3QsQka9j201eSxkcQm9lZCXzA7XPtGQ8E9kjpPlepjwahcXyVIWVjonK3CohPrYfCTrS6Odx8rdtsihOEU1e2QUCiWgMN6Bqn8M9pRMrqCPPBmHaKOW6qj5hA94dPBZBhpbkaG8IGhu9qOrCbl8ZCmlVI4iBMjJNEDS9eAZDZD";
+
+    function hashSha256(str) {
+      if (!str) return null;
+      var rawHash = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, str.trim().toLowerCase(), Utilities.Charset.UTF_8);
+      var hex = "";
+      for (var i = 0; i < rawHash.length; i++) {
+        var byteVal = rawHash[i];
+        if (byteVal < 0) byteVal += 256;
+        var byteHex = byteVal.toString(16);
+        if (byteHex.length === 1) byteHex = "0" + byteHex;
+        hex += byteHex;
+      }
+      return hex;
+    }
+
+    var cleanPhone = phone ? phone.replace(/\D/g, "") : "";
+    if (cleanPhone.length === 10) cleanPhone = "91" + cleanPhone;
+
+    var userData = {};
+    if (cleanPhone) userData.ph = [hashSha256(cleanPhone)];
+    if (email) userData.em = [hashSha256(email)];
+    if (fullName) {
+      var firstName = fullName.trim().split(/\s+/)[0];
+      if (firstName) userData.fn = [hashSha256(firstName)];
+    }
+
+    var payload = {
+      data: [
+        {
+          event_name: "Lead",
+          event_time: Math.floor(new Date().getTime() / 1000),
+          action_source: "website",
+          event_source_url: pageUrl || "https://sunshineinfra.in",
+          user_data: userData,
+          custom_data: {
+            content_name: projectInterest || "Sunshine Green Meadows",
+            lead_type: leadType || "general_enquiry",
+            currency: "INR",
+            value: 1
+          }
+        }
+      ]
+    };
+
+    var url = "https://graph.facebook.com/v21.0/" + datasetId + "/events?access_token=" + accessToken;
+    UrlFetchApp.fetch(url, {
+      method: "post",
+      contentType: "application/json",
+      payload: JSON.stringify(payload),
+      muteHttpExceptions: true
+    });
+  } catch (err) {
+    Logger.log("Meta CAPI Error: " + err.toString());
   }
 }
 
