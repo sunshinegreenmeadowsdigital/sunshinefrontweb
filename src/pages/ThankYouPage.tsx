@@ -10,25 +10,34 @@ export const ThankYouPage: React.FC = () => {
     leadType?: string
     name?: string
     project?: string
+    eventId?: string
   }
 
   const leadType = state.leadType || 'general_enquiry'
   const userName = state.name ? state.name.trim().split(' ')[0] : ''
   const project = state.project || siteConfig.greenMeadows.name
+  const eventId = state.eventId
 
   useEffect(() => {
     window.scrollTo(0, 0)
 
     // Deduplication: Prevent duplicate 'Lead' event firing if visitor refreshes the page
-    const navKey = location.key || 'direct'
+    const navKey = eventId || location.key || 'direct'
     const dedupeKey = `meta_lead_tracked_${navKey}`
 
     if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
       if (!sessionStorage.getItem(dedupeKey)) {
-        window.fbq('track', 'Lead', {
-          content_name: project,
-          lead_type: leadType,
-        })
+        // Official Meta Pixel + CAPI Event Deduplication via matching eventID
+        const eventOptions = eventId ? { eventID: eventId } : undefined
+        window.fbq(
+          'track',
+          'Lead',
+          {
+            content_name: project,
+            lead_type: leadType,
+          },
+          eventOptions
+        )
         try {
           sessionStorage.setItem(dedupeKey, 'true')
         } catch {
@@ -36,9 +45,9 @@ export const ThankYouPage: React.FC = () => {
         }
       }
     }
-  }, [project, leadType, location.key])
+  }, [project, leadType, location.key, eventId])
 
-  const whatsAppDirectUrl = `https://api.whatsapp.com/send?phone=${siteConfig.contact.whatsAppNumber}&text=${encodeURIComponent(
+  const whatsAppDirectUrl = `https://wa.me/917997482222?text=${encodeURIComponent(
     leadType === 'brochure_request'
       ? `Hi Sunshine Infra team, I just requested the brochure for ${project} on your website. Please share the brochure PDF and price sheet.`
       : `Hi Sunshine Infra team, I just enquired about ${project} on your website. Please share the details.`
@@ -77,7 +86,7 @@ export const ThankYouPage: React.FC = () => {
             className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-[0.99] text-white font-semibold text-sm shadow-md shadow-emerald-600/25 transition-all"
           >
             <MessageCircle className="w-4 h-4 fill-white" />
-            <span>Chat on WhatsApp</span>
+            <span>Chat on WhatsApp with Sales Desk</span>
           </a>
 
           <a

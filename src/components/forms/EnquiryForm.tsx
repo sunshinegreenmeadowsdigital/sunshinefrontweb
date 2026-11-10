@@ -93,6 +93,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
             leadType: 'general_enquiry',
             name: data.fullName.trim(),
             project: projectInterest,
+            eventId: result.eventId,
           },
         })
       } else {

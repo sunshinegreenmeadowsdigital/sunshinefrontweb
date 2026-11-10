@@ -102,6 +102,7 @@ export const QuickLeadForm: React.FC<QuickLeadFormProps> = ({
             leadType: 'general_enquiry',
             name: data.fullName.trim(),
             project: projectInterest,
+            eventId: result.eventId,
           },
         })
       } else {

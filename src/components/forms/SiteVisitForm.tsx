@@ -67,6 +67,7 @@ export const SiteVisitForm: React.FC<SiteVisitFormProps> = ({
             leadType: 'site_visit',
             name: data.fullName.trim(),
             project: projectInterest,
+            eventId: result.eventId,
           },
         })
       } else {

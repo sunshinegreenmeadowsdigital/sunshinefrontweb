@@ -65,6 +65,7 @@ export interface SubmissionResult {
   success: boolean
   message: string
   leadId?: string
+  eventId?: string
   timestamp: string
   isStagingOnly?: boolean
 }

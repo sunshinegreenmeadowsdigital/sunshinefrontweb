@@ -57,7 +57,10 @@ export async function submitLead(payload: LeadPayload): Promise<SubmissionResult
     project: payload.projectInterest,
   })
 
-  // 5. Server-side Meta Conversions API (CAPI) dispatch
+  // 5. Unique shared eventId for official Meta Pixel & CAPI Deduplication
+  const eventId = `lead_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`
+
+  // 6. Server-side Meta Conversions API (CAPI) dispatch
   try {
     fetch('/api/meta-conversions', {
       method: 'POST',
@@ -72,6 +75,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmissionResult
         leadType: payload.leadType,
         source: payload.source || 'Website Lead',
         pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+        eventId,
       }),
     }).catch((capiErr) => {
       console.debug('[Meta CAPI non-blocking error]:', capiErr)
@@ -80,7 +84,7 @@ export async function submitLead(payload: LeadPayload): Promise<SubmissionResult
     // Non-blocking safe execution
   }
 
-  // 6. Remote Endpoint or Honest Local Staging
+  // 7. Remote Endpoint or Honest Local Staging
   const endpoint = import.meta.env.VITE_LEAD_SUBMISSION_ENDPOINT
 
   // Prepare standardized Google Sheets row payload
@@ -149,7 +153,8 @@ export async function submitLead(payload: LeadPayload): Promise<SubmissionResult
         success: true,
         message:
           'Thank you! Your enquiry has been received and routed to our sales team. An advisor will contact you shortly.',
-        leadId: `lead_${Date.now()}`,
+        leadId: eventId,
+        eventId: eventId,
         timestamp: new Date().toISOString(),
       }
     } catch (networkError) {
@@ -188,7 +193,8 @@ export async function submitLead(payload: LeadPayload): Promise<SubmissionResult
     isStagingOnly: true,
     message:
       'Thank you! Your information has been validated and recorded. (Note: Google Sheets webhook is awaiting endpoint configuration — for immediate assistance, please call +91 7997482222).',
-    leadId: `staging_${Date.now()}`,
+    leadId: eventId,
+    eventId: eventId,
     timestamp: new Date().toISOString(),
   }
 }

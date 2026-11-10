@@ -65,6 +65,7 @@ export const BrochureForm: React.FC<BrochureFormProps> = ({
             leadType: 'brochure_request',
             name: data.fullName.trim(),
             project: projectInterest,
+            eventId: result.eventId,
           },
         })
       } else {
