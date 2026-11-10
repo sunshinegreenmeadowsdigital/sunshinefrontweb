@@ -19,17 +19,29 @@ export const ThankYouPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
 
-    // Fire Meta Pixel standard 'Lead' event for dedicated URL tracking
+    // Deduplication: Prevent duplicate 'Lead' event firing if visitor refreshes the page
+    const navKey = location.key || 'direct'
+    const dedupeKey = `meta_lead_tracked_${navKey}`
+
     if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-      window.fbq('track', 'Lead', {
-        content_name: project,
-        lead_type: leadType,
-      })
+      if (!sessionStorage.getItem(dedupeKey)) {
+        window.fbq('track', 'Lead', {
+          content_name: project,
+          lead_type: leadType,
+        })
+        try {
+          sessionStorage.setItem(dedupeKey, 'true')
+        } catch {
+          // Ignore private browsing storage restrictions
+        }
+      }
     }
-  }, [project, leadType])
+  }, [project, leadType, location.key])
 
   const whatsAppDirectUrl = `https://api.whatsapp.com/send?phone=${siteConfig.contact.whatsAppNumber}&text=${encodeURIComponent(
-    `Hi Sunshine Infra team, I just enquired about ${project} on your website. Please share the details.`
+    leadType === 'brochure_request'
+      ? `Hi Sunshine Infra team, I just requested the brochure for ${project} on your website. Please share the brochure PDF and price sheet.`
+      : `Hi Sunshine Infra team, I just enquired about ${project} on your website. Please share the details.`
   )}`
 
   return (
